@@ -61,20 +61,35 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- MAIN LAYOUT ---
+import base64
+import os
+
+# Function to convert image to base64 for deployment stability
+def render_image(image_path):
+    with open(image_path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
 # --- PROFILE SECTION ---
 with st.container():
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        # Update the 'src' below with your local image path
-        profile_pic_path = "IMG_20251231_134924309_HDR_PORTRAIT.jpg"
-
-        st.markdown(f"""
-        <div class="profile-card">
-            <img src="file/{profile_pic_path}" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover; border: 3px solid #333;">
-            <h3>ANIKET PANDA</h3>
-            <p>📧 aniketpanda02@gmail.com | 🔗 <a href="#">LinkedIn</a></p>
-        </div>
-        """, unsafe_allow_html=True)
+        # IMPORTANT: Use the exact filename as it appears in GitHub
+        image_filename = "IMG_20251231_134924309_HDR_PORTRAIT.jpg"
+        
+        if os.path.exists(image_filename):
+            base64_img = render_image(image_filename)
+            st.markdown(f"""
+            <div class="profile-card">
+                <img src="data:image/jpg;base64,{base64_img}" 
+                     style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover; border: 3px solid #333;">
+                <h3>Amit</h3>
+                <p>👨‍🍳 Sous Chef | 💻 Tech Enthusiast</p>
+                <p>📧 contact@email.com | 🔗 <a href="#">LinkedIn</a></p>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.warning("Profile image not found in the repository.")
 
 # 4 & 6. Categories and Storage Logic
 categories = ["Science", "Travel", "Technology", "Miscellaneous"]
