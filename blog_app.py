@@ -66,7 +66,7 @@ with st.container():
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         # Update the 'src' below with your local image path
-        profile_pic_path = r"C:\Users\BABA\Downloads\IMG_20251231_134924309_HDR_PORTRAIT.jpg"
+        profile_pic_path = "IMG_20251231_134924309_HDR_PORTRAIT.jpg"
 
         st.markdown(f"""
         <div class="profile-card">
