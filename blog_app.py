@@ -83,9 +83,9 @@ with st.container():
             <div class="profile-card">
                 <img src="data:image/jpg;base64,{base64_img}" 
                      style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover; border: 3px solid #333;">
-                <h3>Amit</h3>
-                <p>👨‍🍳 Sous Chef | 💻 Tech Enthusiast</p>
-                <p>📧 contact@email.com | 🔗 <a href="#">LinkedIn</a></p>
+                <h3>ANIKET PANDA</h3>
+                <p>Electrical Engineer |  Tech Enthusiast | Python Developer</p>
+                <p>📧 aniketpanda02@gmail.com | 🔗 <a href="#">LinkedIn</a></p>
             </div>
             """, unsafe_allow_html=True)
         else:
